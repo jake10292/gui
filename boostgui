@@ -3,19 +3,23 @@ local main = Instance.new("Frame")
 local close = Instance.new("TextButton")
 local TextLabel = Instance.new("TextLabel")
 local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+
+--Properties:
 
 ScreenGui.Parent = game.CoreGui
 
 main.Name = "main"
 main.Parent = ScreenGui
-main.BackgroundColor3 = Color3.fromRGB(179, 179, 179)
-main.Position = UDim2.new(0.28623125, 0, 0.364583313, 0)
-main.Size = UDim2.new(0, 435, 0, 203)
+main.BackgroundColor3 = Color3.fromRGB(102, 204, 255)
+main.Position = UDim2.new(0.237374738, 0, 0.274305552, 0)
+main.Size = UDim2.new(0, 565, 0, 260)
 
 close.Name = "close"
 close.Parent = main
 close.BackgroundColor3 = Color3.fromRGB(164, 254, 168)
-close.Position = UDim2.new(0.282165498, 0, 0.69536835, 0)
+close.Position = UDim2.new(0.33188647, 0, 0.779983759, 0)
 close.Size = UDim2.new(0, 188, 0, 43)
 close.Font = Enum.Font.Roboto
 close.Text = "Idc"
@@ -25,25 +29,43 @@ close.TextWrapped = true
 close.MouseButton1Down:connect(function()
 	main.Visible = false
 	wait()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/jake10292/gui/main/boost"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/jake10292/gui/main/boost%22))()
 end)
 
 TextLabel.Parent = main
-TextLabel.BackgroundColor3 = Color3.fromRGB(179, 179, 179)
-TextLabel.BorderColor3 = Color3.fromRGB(179, 179, 179)
-TextLabel.Position = UDim2.new(0.123651609, 0, 0.104782172, 0)
-TextLabel.Size = UDim2.new(0, 303, 0, 81)
+TextLabel.BackgroundColor3 = Color3.fromRGB(102, 204, 255)
+TextLabel.BorderColor3 = Color3.fromRGB(102, 204, 255)
+TextLabel.Position = UDim2.new(0.228718162, 0, 0.358628362, 0)
+TextLabel.Size = UDim2.new(0, 303, 0, 36)
 TextLabel.Font = Enum.Font.SourceSansSemibold
 TextLabel.Text = "Leave the game to stop the autofarm"
 TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.TextSize = 30.000
 
 TextLabel_2.Parent = main
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(179, 179, 179)
-TextLabel_2.BorderColor3 = Color3.fromRGB(179, 179, 179)
-TextLabel_2.Position = UDim2.new(0.254483432, 0, 0.372725606, 0)
-TextLabel_2.Size = UDim2.new(0, 200, 0, 50)
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(102, 204, 255)
+TextLabel_2.BorderColor3 = Color3.fromRGB(102, 204, 255)
+TextLabel_2.Position = UDim2.new(0.32254526, 0, 0.545802534, 0)
+TextLabel_2.Size = UDim2.new(0, 200, 0, 29)
 TextLabel_2.Font = Enum.Font.SourceSansSemibold
 TextLabel_2.Text = "Make your avatar like Christone101"
 TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel_2.TextSize = 30.000
+
+TextLabel_3.Parent = main
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(102, 204, 255)
+TextLabel_3.BorderColor3 = Color3.fromRGB(102, 204, 255)
+TextLabel_3.Position = UDim2.new(0.322881252, 0, 0.238461539, 0)
+TextLabel_3.Size = UDim2.new(0, 200, 0, 31)
+TextLabel_3.Font = Enum.Font.SourceSansSemibold
+TextLabel_3.Text = "You need a lot of beli btw (using ken haki uses food)"
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.TextSize = 30.000
+
+TextLabel_4.Parent = main
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(66, 255, 92)
+TextLabel_4.Size = UDim2.new(0, 565, 0, 42)
+TextLabel_4.Font = Enum.Font.SourceSansBold
+TextLabel_4.Text = "Read before starting autofarm"
+TextLabel_4.TextColor3 = Color3.fromRGB(252, 1, 7)
+TextLabel_4.TextSize = 40.000
