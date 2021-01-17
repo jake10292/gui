@@ -3,37 +3,6 @@ repeat
 until game:IsLoaded()
 if game.PlaceId == 6069993731 then
     wait(3)
-    local function plramount()
-        local Players = game:GetService("Players")
-        local e = #Players:GetPlayers()
-        if e == 1 then
-            print("stfu")
-            wait()
-        elseif e > 1 then
-            game:GetService("StarterGui"):SetCore(
-                "PromptBlockPlayer",
-                game.Players:GetPlayers()[math.random(2, #game.Players:GetPlayers())]
-            )
-            wait(1.6)
-            game:GetService("TeleportService"):Teleport(705844193, game.Players.LocalPlayer)
-        end
-    end
-	spawn(function()
-    while true do
-        plramount()
-        wait()
-    end
-	end)
-    game:GetService "Players".PlayerAdded:Connect(
-        function()
-            for _, v in pairs(game:GetService("Players"):GetPlayers()) do
-                wait()
-                game:GetService("StarterGui"):SetCore("PromptBlockPlayer", v)
-            end
-            wait(1.4)
-            game:GetService("TeleportService"):Teleport(705844193, game.Players.LocalPlayer)
-        end
-    )
     function notify(text)
         game.StarterGui:SetCore(
             "SendNotification",
@@ -41,12 +10,12 @@ if game.PlaceId == 6069993731 then
                 Title = "~IMPORTANT~",
                 Text = text,
                 Icon = "",
-                Duration = 100000
+                Duration = 200
             }
         )
     end
     wait()
-    notify("This autohops whenever a person joins, make sure to have your block list at 0 before starting the script")
+    notify("This is the manual haki farm, it does not serverhop so be careful")
     for i, b in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
         if b.Name == "EagleVision" and b:IsA("Sound") and b.Parent.Whispers:IsA("Sound") then
             local Event = game:GetService("Players").LocalPlayer.PlayerGui[b.Parent.Name].use
@@ -86,25 +55,5 @@ if game.PlaceId == 6069993731 then
         end
     )
 else
-    for i = 1, 3 do
-        function notify(text)
-            game.StarterGui:SetCore(
-                "SendNotification",
-                {
-                    Title = "~IMPORTANT~",
-                    Text = text,
-                    Icon = "",
-                    Duration = 100000
-                }
-            )
-        end
-        wait()
-        notify("PLACE UR MOUSE WHERE THE BLOCK BUTTON IS WHEN THE GUI POPS UP AND AUTOCLICK")
-    end
-    for _, o in pairs(game:GetService("Players"):GetPlayers()) do
-        wait()
-        game:GetService("StarterGui"):SetCore("PromptBlockPlayer", o)
-    end
-    wait(3.7)
     game:GetService("TeleportService"):Teleport(6069993731, game.Players.LocalPlayer)
 end
