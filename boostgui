@@ -29,7 +29,7 @@ close.TextWrapped = true
 close.MouseButton1Down:connect(function()
 	main.Visible = false
 	wait()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/jake10292/gui/main/boost%22))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/jake10292/gui/main/boost"))()
 end)
 
 TextLabel.Parent = main
