@@ -1,6 +1,8 @@
 if cratef == true then
+print("crate on")
 _G.crate = true
 elseif cratef == false then
+print("crate off")
 _G.crate = false
 end
         if _G.crate == true then
