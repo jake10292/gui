@@ -1,0 +1,90 @@
+if cratef == true then
+_G.crate = true
+elseif cratef == false then
+_G.crate = false
+end
+        if _G.crate == true then
+    function notify(text)
+        game.StarterGui:SetCore(
+            "SendNotification",
+            {
+                Title = "stfu",
+                Text = text,
+                Icon = "",
+                Duration = 20
+            }
+        )
+    end
+    wait()
+    notify("make sure to set _G.crate to false if u want it to stop")
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-10396.95, 38.78, -410.98)
+    wait(3)
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-5735.79, 78.76, -2866.16)
+    wait(1)
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3137.85, 167.57, -1045.11)
+    wait(1)
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3890.06, 5.26, 758.11)
+    wait(1.2)
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-7529.72, 26.15, 1347.53)
+    wait(2)
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-5124.06, 134.39, -478.22)
+    wait(1)
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-7753.65, 12.21, -2994.88)
+    wait(1)
+    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-7753.65, 12.21, -2994.88)
+    wait(1)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2901.25, 241.79, -10330.08)
+    wait(0.7)
+    for i, v in pairs(game.Workspace:GetDescendants()) do
+        if v.Name == "CrateItem" and v:IsA("StringValue") and v.Parent.Name == "CrateBuy" and v.Value == "Dance Powder" then
+            v.Parent.Head.CanCollide = false
+            v.Parent.Head.CFrame = CFrame.new(-2905.77, 241.79, -10292.66)
+            wait(0.01)
+            for i, b in pairs(
+                game:GetService("Workspace")["Alabasta Island Kingdom"].Model.CrateSellStation:GetDescendants()
+            ) do
+                if
+                    b.Name == "CrateItem" and b:IsA("StringValue") and b.Parent.Name == "CrateSell" and
+                        b.Value == "Dance Powder"
+                 then
+                    b.Parent.Head.CanCollide = false
+                    b.Parent.Head.CFrame = CFrame.new(-2912.66, 241.79, -10292.66)
+                    wait(0.01)
+                    for i, a in pairs(game:GetService("Workspace"):GetDescendants()) do
+                        if
+                            a.Name == "CrateItem" and a:IsA("StringValue") and a.Parent.Name == "CrateSell" and
+                                a.Value == "Silk"
+                         then
+                            a.Parent.Head.CanCollide = false
+                            a.Parent.Head.CFrame = CFrame.new(-2905.86, 241.79, -10288.83)
+                            wait(0.01)
+                            for i, c in pairs(game:GetService("Workspace"):GetDescendants()) do
+                                if
+                                    c.Name == "Head" and c.Parent.Name == "CrateBuy" and
+                                        c.Parent.CrateItem.Value == "Silk"
+                                 then
+                                    c.Parent.Head.CanCollide = false
+                                    c.Parent.Head.CFrame = CFrame.new(-2912.66, 241.79, -10288.83)
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    getgenv().speed = 40
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/BAG0N/OPM_DF/main/TweenTP.lua"))()
+    while _G.crate do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2905.77, 241.79, -10292.66)
+        wait(0.3)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2912.66, 241.79, -10292.66)
+        wait(0.3)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2912.66, 241.79, -10288.83)
+        wait(0.3)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2905.86, 241.79, -10288.83)
+        wait(0.3)
+    end
+else wait()
+getgenv().speed = 100000
+end
