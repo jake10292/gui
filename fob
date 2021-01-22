@@ -1,0 +1,129 @@
+local plrn = game.Players.LocalPlayer.Name
+spawn(
+    function()
+        while true do
+            for i, v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
+                if v.Name == "AntiSpeedHack" and v:IsA("LocalScript") then
+                    v:Destroy()
+                    wait()
+                end
+            end
+            wait()
+        end
+    end
+)
+local mt = getrawmetatable(game)
+local oldCall = mt.__namecall
+
+setreadonly(mt, false)
+mt.__namecall =
+    newcclosure(
+    function(self, ...)
+        if getnamecallmethod():lower() == "KickPlayer" then
+            return nil
+        end
+        return oldCall(self, ...)
+    end
+)
+setreadonly(mt, true)
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+game:GetService("RunService").RenderStepped:Connect(
+    function()
+        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+        wait()
+    end
+)
+spawn(
+    function()
+        game.Workspace.Unbreakable.Characters.Human["Human General"].NpcWeldScript:Destroy()
+        game.Workspace.Unbreakable.Characters.Orc["Orc General"].NpcWeldScript:Destroy()
+    end
+)
+game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
+    game.Players[game.Players.LocalPlayer.Name].Backpack[Tool]
+)
+spawn(
+    function()
+        while true do
+            game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
+                function(character)
+                    wait(1)
+                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
+                        if v.Name == Tool and v:IsA("Tool") then
+                            game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
+                                game.Players[game.Players.LocalPlayer.Name].Backpack[Tool]
+                            )
+                            wait()
+                        else
+                            wait()
+                        end
+                    end
+                    wait()
+                end
+            )
+            wait()
+        end
+    end
+)
+spawn(
+    function()
+        function humans()
+            if game.Players.LocalPlayer.Team.Name == "Human" then
+                for i, hu in pairs(game.Workspace.Unbreakable.Characters.Human:GetDescendants()) do
+                    if hu.Name == plrn then
+                        repeat
+                            game.Workspace.Unbreakable.Characters.Human[game.Players.LocalPlayer.Name]:FindFirstChild(
+                                Tool
+                            ):Activate()
+                            wait()
+                        until game.Players.LocalPlayer.Character.Humanoid.Health == 0
+                    end
+                end
+            end
+        end
+        function orcs()
+            if game.Players.LocalPlayer.Team.Name == "Orc" then
+                for i, orcg in pairs(game.Workspace.Unbreakable.Characters.Orc:GetDescendants()) do
+                    if orcg.Name == plrn then
+                        repeat
+                            game.Workspace.Unbreakable.Characters.Orc[game.Players.LocalPlayer.Name]:FindFirstChild(
+                                Tool
+                            ):Activate()
+                            wait()
+                        until game.Players.LocalPlayer.Character.Humanoid.Health == 0
+                    end
+                end
+            end
+        end
+    end
+)
+
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
+    function(character)
+        wait(3)
+        orcs()
+        humans()
+    end
+)
+wait(2)
+if game.Players.LocalPlayer.Team.Name == "Orc" then
+    for i, b in pairs(game.Workspace.Unbreakable.Characters.Human:GetChildren()) do
+        if b:IsA("Model") and b:FindFirstChild("NpcWeldScript") then
+            repeat
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                    b.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -5, 0)
+                wait()
+            until b.Humanoid.Health <= 0
+        end
+    end
+elseif game.Players.LocalPlayer.Team.Name == "Human" then
+    for i, c in pairs(game.Workspace.Unbreakable.Characters.Orc:GetChildren()) do
+        if c:IsA("Model") and c:FindFirstChild("NpcWeldScript") then
+            repeat
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                    c.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -5, 0)
+                wait()
+            until c.Humanoid.Health <= 0
+        end
+    end
+end
