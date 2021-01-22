@@ -1,3 +1,4 @@
+local Tool = toools
 local plrn = game.Players.LocalPlayer.Name
 spawn(
     function()
