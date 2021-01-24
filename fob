@@ -1,4 +1,12 @@
-local Tool = toools
+repeat wait() until game:IsLoaded()
+spawn(function()
+game:GetService("RunService").RenderStepped:Connect(
+    function()
+        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+        wait()
+    end
+)
+end)
 local plrn = game.Players.LocalPlayer.Name
 spawn(
     function()
@@ -15,7 +23,6 @@ spawn(
 )
 local mt = getrawmetatable(game)
 local oldCall = mt.__namecall
-
 setreadonly(mt, false)
 mt.__namecall =
     newcclosure(
@@ -28,12 +35,7 @@ mt.__namecall =
 )
 setreadonly(mt, true)
 game.Players.LocalPlayer.Character.Humanoid.Health = 0
-game:GetService("RunService").RenderStepped:Connect(
-    function()
-        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-        wait()
-    end
-)
+
 spawn(
     function()
         game.Workspace.Unbreakable.Characters.Human["Human General"].NpcWeldScript:Destroy()
@@ -98,33 +100,40 @@ spawn(
         end
     end
 )
-
 game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
     function(character)
-        wait(3)
+        wait(2.5)
         orcs()
         humans()
     end
 )
-wait(2)
-if game.Players.LocalPlayer.Team.Name == "Orc" then
-    for i, b in pairs(game.Workspace.Unbreakable.Characters.Human:GetChildren()) do
+local function orcss()
+    for i, b in pairs(game.Workspace.Unbreakable.Characters.Human:GetDescendants()) do
         if b:IsA("Model") and b:FindFirstChild("NpcWeldScript") then
             repeat
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
                     b.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -5, 0)
                 wait()
-            until b.Humanoid.Health <= 0
+            until b.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health == 0
         end
     end
-elseif game.Players.LocalPlayer.Team.Name == "Human" then
-    for i, c in pairs(game.Workspace.Unbreakable.Characters.Orc:GetChildren()) do
+end
+local function humanss()
+    for i, c in pairs(game.Workspace.Unbreakable.Characters.Orc:GetDescendants()) do
         if c:IsA("Model") and c:FindFirstChild("NpcWeldScript") then
             repeat
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
                     c.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -5, 0)
                 wait()
-            until c.Humanoid.Health <= 0
+            until c.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health == 0
         end
     end
 end
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(character)
+wait(1.5)
+if game.Players.LocalPlayer.Team.Name == "Orc" then
+orcss()
+elseif game.Players.LocalPlayer.Team.Name == "Human" then
+humanss()
+end
+end)
