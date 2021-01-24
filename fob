@@ -6,7 +6,7 @@ until game:IsLoaded()
 game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
     function(character)
         wait(0.7)
-        game.Players.LocalPlayer.Backpack[Tool].Handle.Size = Vector3.new(2, 2, 15)
+        game.Players.LocalPlayer.Backpack[Tool].Handle.Size = Vector3.new(2, 2, 20)
     end
 )
 spawn(
@@ -146,7 +146,7 @@ local function orcss()
         if b:IsA("Model") and b:FindFirstChild("NpcWeldScript") then
             repeat
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    b.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -12, 0)
+                    b.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -15, 0)
                 wait()
             until b.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health == 0
         end
@@ -157,7 +157,7 @@ local function humanss()
         if c:IsA("Model") and c:FindFirstChild("NpcWeldScript") then
             repeat
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    c.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -12, 0)
+                    c.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -15, 0)
                 wait()
             until c.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health == 0
         end
