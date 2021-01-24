@@ -1,12 +1,19 @@
+local Tool = getgenv().toool
+_G.gemm = getgenv().gems
+local plrn = game.Players.LocalPlayer.Name
 repeat
     wait()
 until game:IsLoaded()
-local Tool = getgenv().toool
-_G.gemm = getgenv().gems
 game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
 function(character)
-wait(0.7)
-game.Players.LocalPlayer.Backpack[Tool].Handle.Size = Vector3.new(2,2,20)
+wait(1.5)
+if game.Players.LocalPlayer.Team.Name == "Orc" then
+game.Players.LocalPlayer.Backpack[Tool].Handle.Size = Vector3.new(2,2,15)
+elseif game.Players.LocalPlayer.Team.Name == "Human" then
+game.Players.LocalPlayer.Backpack[Tool].Handle.Size = Vector3.new(2,2,15)
+elseif game.Players.LocalPlayer.Team.Name == "Neutral" then
+wait()
+end
 end)
 spawn(
     function()
@@ -31,7 +38,6 @@ spawn(
         )
     end
 )
-local plrn = game.Players.LocalPlayer.Name
 spawn(
     function()
         while true do
@@ -84,17 +90,9 @@ spawn(
     function()
             game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
                 function(character)
-                    wait(1.5)
-                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
-                        if v.Name == Tool and v:IsA("Tool") then
-                            game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
-                                game.Players[game.Players.LocalPlayer.Name].Backpack[Tool]
-                            )
-                            wait()
-                        else
-                            wait()
-                        end
-                    end
+                    wait(2)
+                    game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
+                                game.Players[game.Players.LocalPlayer.Name].Backpack[Tool])
                     wait()
                 end
             )
@@ -143,8 +141,11 @@ local function orcss()
     for i, b in pairs(game.Workspace.Unbreakable.Characters.Human:GetDescendants()) do
         if b:IsA("Model") and b:FindFirstChild("NpcWeldScript") then
             repeat
+                        b.Torso.Size = Vector3.new(30,30,30)
+                        b.Torso.CanCollide = false
+                        b.Torso.Transparency = 1
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    b.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -15, 0)
+                    b.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13, 0)
                 wait()
             until b.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health == 0
         end
@@ -154,8 +155,11 @@ local function humanss()
     for i, c in pairs(game.Workspace.Unbreakable.Characters.Orc:GetDescendants()) do
         if c:IsA("Model") and c:FindFirstChild("NpcWeldScript") then
             repeat
+            c.Torso.Size = Vector3.new(30,30,30)
+            c.Torso.CanCollide = false
+            c.Torso.Transparency = 1
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    c.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -15, 0)
+                    c.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -13, 0)
                 wait()
             until c.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health == 0
         end
