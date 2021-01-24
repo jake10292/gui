@@ -3,6 +3,12 @@ _G.gemm = getgenv().gems
 repeat
     wait()
 until game:IsLoaded()
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
+    function(character)
+        wait(0.7)
+        game.Players.LocalPlayer.Backpack[Tool].Handle.Size = Vector3.new(2, 2, 15)
+    end
+)
 spawn(
     function()
         while _G.gemm do
@@ -75,30 +81,25 @@ spawn(
         end
     end
 )
-game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
-    game.Players[game.Players.LocalPlayer.Name].Backpack[Tool]
-)
 spawn(
     function()
-        while true do
-            game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
-                function(character)
-                    wait(1)
-                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
-                        if v.Name == Tool and v:IsA("Tool") then
-                            game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
-                                game.Players[game.Players.LocalPlayer.Name].Backpack[Tool]
-                            )
-                            wait()
-                        else
-                            wait()
-                        end
+        game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
+            function(character)
+                wait(1.5)
+                for i, v in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
+                    if v.Name == Tool and v:IsA("Tool") then
+                        game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
+                            game.Players[game.Players.LocalPlayer.Name].Backpack[Tool]
+                        )
+                        wait()
+                    else
+                        wait()
                     end
-                    wait()
                 end
-            )
-            wait()
-        end
+                wait()
+            end
+        )
+        wait()
     end
 )
 spawn(
@@ -145,7 +146,7 @@ local function orcss()
         if b:IsA("Model") and b:FindFirstChild("NpcWeldScript") then
             repeat
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    b.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -8, 0)
+                    b.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -12, 0)
                 wait()
             until b.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health == 0
         end
@@ -156,7 +157,7 @@ local function humanss()
         if c:IsA("Model") and c:FindFirstChild("NpcWeldScript") then
             repeat
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    c.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -8, 0)
+                    c.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -12, 0)
                 wait()
             until c.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health == 0
         end
@@ -169,6 +170,8 @@ game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
             orcss()
         elseif game.Players.LocalPlayer.Team.Name == "Human" then
             humanss()
+        elseif game.Players.LocalPlayer.Team.Name == "Neutral" then
+            wait()
         end
     end
 )
