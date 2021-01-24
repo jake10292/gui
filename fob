@@ -13,6 +13,7 @@ spawn(
                 end
             end
         end
+        wait()
     end
 )
 spawn(
