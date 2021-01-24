@@ -4,11 +4,10 @@ repeat
     wait()
 until game:IsLoaded()
 game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
-    function(character)
-        wait(0.7)
-        game.Players.LocalPlayer.Backpack[Tool].Handle.Size = Vector3.new(2, 2, 20)
-    end
-)
+function(character)
+wait(0.7)
+game.Players.LocalPlayer.Backpack[Tool].Handle.Size = Vector3.new(2,2,20)
+end)
 spawn(
     function()
         while _G.gemm do
@@ -83,23 +82,23 @@ spawn(
 )
 spawn(
     function()
-        game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
-            function(character)
-                wait(1.5)
-                for i, v in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
-                    if v.Name == Tool and v:IsA("Tool") then
-                        game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
-                            game.Players[game.Players.LocalPlayer.Name].Backpack[Tool]
-                        )
-                        wait()
-                    else
-                        wait()
+            game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
+                function(character)
+                    wait(1.5)
+                    for i, v in pairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
+                        if v.Name == Tool and v:IsA("Tool") then
+                            game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
+                                game.Players[game.Players.LocalPlayer.Name].Backpack[Tool]
+                            )
+                            wait()
+                        else
+                            wait()
+                        end
                     end
+                    wait()
                 end
-                wait()
-            end
-        )
-        wait()
+            )
+            wait()
     end
 )
 spawn(
@@ -171,7 +170,7 @@ game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
         elseif game.Players.LocalPlayer.Team.Name == "Human" then
             humanss()
         elseif game.Players.LocalPlayer.Team.Name == "Neutral" then
-            wait()
+        wait()
         end
     end
 )
