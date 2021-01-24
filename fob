@@ -1,13 +1,17 @@
-local Tool = getgenv().toool
-repeat wait() until game:IsLoaded()
-spawn(function()
-game:GetService("RunService").RenderStepped:Connect(
+local Tool = "Rusty Iron Sword"
+repeat
+    wait()
+until game:IsLoaded()
+spawn(
     function()
-        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-        wait()
+        game:GetService("RunService").RenderStepped:Connect(
+            function()
+                game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+                wait()
+            end
+        )
     end
 )
-end)
 local plrn = game.Players.LocalPlayer.Name
 spawn(
     function()
@@ -39,8 +43,22 @@ game.Players.LocalPlayer.Character.Humanoid.Health = 0
 
 spawn(
     function()
-        game.Workspace.Unbreakable.Characters.Human["Human General"].NpcWeldScript:Destroy()
-        game.Workspace.Unbreakable.Characters.Orc["Orc General"].NpcWeldScript:Destroy()
+        while true do
+            if game.Players.LocalPlayer.Team.Name == "Orc" then
+                for i, y in pairs(game.Workspace.Unbreakable.Characters.Human:GetDescendants()) do
+                    if y.Name == "GeneralScript" then
+                        y.Parent:Destroy()
+                    end
+                end
+            elseif game.Players.LocalPlayer.Team.Name == "Human" then
+                for i, k in pairs(game.Workspace.Unbreakable.Characters.Human:GetDescendants()) do
+                    if k.Name == "GeneralScript" then
+                        k.Parent:Destroy()
+                    end
+                end
+            end
+            wait()
+        end
     end
 )
 game.Players[game.Players.LocalPlayer.Name].Character.Humanoid:EquipTool(
@@ -130,11 +148,13 @@ local function humanss()
         end
     end
 end
-game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(character)
-wait(1.5)
-if game.Players.LocalPlayer.Team.Name == "Orc" then
-orcss()
-elseif game.Players.LocalPlayer.Team.Name == "Human" then
-humanss()
-end
-end)
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
+    function(character)
+        wait(1.5)
+        if game.Players.LocalPlayer.Team.Name == "Orc" then
+            orcss()
+        elseif game.Players.LocalPlayer.Team.Name == "Human" then
+            humanss()
+        end
+    end
+)
