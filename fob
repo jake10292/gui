@@ -51,7 +51,7 @@ spawn(
                     end
                 end
             elseif game.Players.LocalPlayer.Team.Name == "Human" then
-                for i, k in pairs(game.Workspace.Unbreakable.Characters.Human:GetDescendants()) do
+                for i, k in pairs(game.Workspace.Unbreakable.Characters.Orc:GetDescendants()) do
                     if k.Name == "GeneralScript" then
                         k.Parent:Destroy()
                     end
