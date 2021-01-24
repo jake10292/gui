@@ -145,7 +145,7 @@ local function orcss()
         if b:IsA("Model") and b:FindFirstChild("NpcWeldScript") then
             repeat
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    b.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -5, 0)
+                    b.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -8, 0)
                 wait()
             until b.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health == 0
         end
@@ -156,7 +156,7 @@ local function humanss()
         if c:IsA("Model") and c:FindFirstChild("NpcWeldScript") then
             repeat
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-                    c.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -5, 0)
+                    c.Torso.CFrame * CFrame.Angles(math.rad(90), 0, 0) + Vector3.new(0, -8, 0)
                 wait()
             until c.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health == 0
         end
