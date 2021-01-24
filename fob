@@ -1,8 +1,8 @@
-local Tool = getgenv().toool
-_G.gemm = getgenv().gems
 repeat
     wait()
 until game:IsLoaded()
+local Tool = getgenv().toool
+_G.gemm = getgenv().gems
 game:GetService("Players").LocalPlayer.CharacterAdded:Connect(
 function(character)
 wait(0.7)
@@ -98,7 +98,6 @@ spawn(
                     wait()
                 end
             )
-            wait()
     end
 )
 spawn(
