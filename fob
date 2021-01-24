@@ -12,8 +12,8 @@ spawn(
                     wait()
                 end
             end
+            wait()
         end
-        wait()
     end
 )
 spawn(
